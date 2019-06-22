@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Zakat Calculator</string>
+    <string name="amount">المبلغ</string>
+    <string name="calc">احسب</string>
+    <string name="result">الناتج</string>
+</resources>
