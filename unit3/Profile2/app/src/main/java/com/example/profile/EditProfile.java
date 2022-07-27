@@ -3,7 +3,7 @@ package com.example.profile;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -31,7 +31,7 @@ public class EditProfile extends AppCompatActivity {
     {
         String nameValue=name.getText().toString();
         String roleValue=role.getText().toString();
-        if (nameValue.isEmpty()&&roleValue.isEmpty())
+        if (nameValue.isEmpty()|| roleValue.isEmpty())
             Toast.makeText(this,"please enter your name and role",Toast.LENGTH_LONG).show();
         else
         {
@@ -40,6 +40,7 @@ public class EditProfile extends AppCompatActivity {
             editor.putString("name", nameValue);
             editor.putString("role", roleValue);
             editor.commit();
+
             Intent intent=new Intent(EditProfile.this,MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
