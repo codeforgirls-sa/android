@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         name=findViewById(R.id.userName);
         description=findViewById(R.id.description);
         save=findViewById(R.id.saveButton);
+
         SharedPreferences sharedPref = getSharedPreferences("myData", Context.MODE_PRIVATE);
         if (sharedPref.contains("name")) {
             save.setVisibility(View.GONE);

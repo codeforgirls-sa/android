@@ -18,9 +18,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         listView=findViewById(R.id.myLV);
+
         //Data
         ArrayList<String> colors=new ArrayList<>();
         colors.add("red");colors.add("blue");colors.add("black");colors.add("white");colors.add("green");colors.add("grey");
+
         //Adapter
         ArrayAdapter adapter=new ArrayAdapter(this,android.R.layout.simple_list_item_1,colors);
         listView.setAdapter(adapter);
@@ -28,7 +30,8 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(MainActivity.this,"hello index"+position,Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "clicked item " + colors.get(position)+ " ,in index "+ position, Toast.LENGTH_SHORT).show();
+
             }
         });
     }
