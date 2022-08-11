@@ -12,36 +12,40 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     //views
-    EditText name;
+    EditText editText;
     TextView description;
-    Button save;
+    Button button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        name=findViewById(R.id.userName);
+        //init views
+        editText=findViewById(R.id.userName);
         description=findViewById(R.id.description);
-        save=findViewById(R.id.saveButton);
+        button=findViewById(R.id.saveButton);
 
-        SharedPreferences sharedPref = getSharedPreferences("myData", Context.MODE_PRIVATE);
+        //get Data
+        SharedPreferences sharedPref = getSharedPreferences("myyData", Context.MODE_PRIVATE);
         if (sharedPref.contains("name")) {
-            save.setVisibility(View.GONE);
-            name.setVisibility(View.GONE);
+            button.setVisibility(View.GONE);
+            editText.setVisibility(View.GONE);
             description.setVisibility(View.VISIBLE);
-            Toast.makeText(this, "hello" + sharedPref.getString("name", ""), Toast.LENGTH_LONG).show();
-        }
+            Toast.makeText(this, "Hello " + sharedPref.getString("name", ""),
+                    Toast.LENGTH_LONG).show(); }
     }
+    //save Data onClick the Button
     public void saveName(View view){
-        String nameValue=name.getText().toString();
+        String nameValue=editText.getText().toString();
         if (nameValue.isEmpty())
             Toast.makeText(this,"please enter your name",Toast.LENGTH_LONG).show();
         else {
-            SharedPreferences sharedPref = getSharedPreferences("myData", Context.MODE_PRIVATE);
+            SharedPreferences sharedPref = getSharedPreferences("myyData", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPref.edit();
             editor.putString("name", nameValue);
             editor.commit();
-            Toast.makeText(this,"hello"+nameValue,Toast.LENGTH_LONG).show(); ;
+            Toast.makeText(this,"Hello "+nameValue,Toast.LENGTH_LONG).show();
         }
     }
+
+
 }
