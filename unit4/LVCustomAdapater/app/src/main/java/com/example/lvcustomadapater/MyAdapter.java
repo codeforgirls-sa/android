@@ -12,48 +12,63 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+
 public class MyAdapter extends BaseAdapter {
     Context context;
-    ArrayList<Restuarant> data;
-    public MyAdapter(Context context,ArrayList<Restuarant> Data)
-    {
+    ArrayList<Restuarant> arr;
+    public MyAdapter(Context context, ArrayList<Restuarant> arr) {
         this.context=context;
-        this.data=Data;
-    }
-    @Override
-    public int getCount() {
-        return data.size();
+        this.arr= arr;
+
     }
 
     @Override
-    public Object getItem(int position) {
+    public int getCount() {
+        return arr.size();
+    }
+
+    @Override
+    public Object getItem(int i) {
         return null;
     }
 
     @Override
-    public long getItemId(int position) {
+    public long getItemId(int i) {
         return 0;
     }
 
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
-        LayoutInflater layoutInflater = LayoutInflater.from(context);
-        convertView=layoutInflater.inflate(R.layout.list_item, null);
-        final TextView name=convertView.findViewById(R.id.name);
-        TextView rating=convertView.findViewById(R.id.rating);
-        Button Location=convertView.findViewById(R.id.showLocation);
-        //set Data
-        name.setText(data.get(position).name);
-        rating.setText("Rating:"+data.get(position).rating);
-        Location.setOnClickListener(new View.OnClickListener() {
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        LayoutInflater inflater=  LayoutInflater.from(context);
+        view= inflater.inflate(R.layout.list_item,null);
+
+        TextView name= view.findViewById(R.id.name);
+        TextView rating= view.findViewById(R.id.rating);
+        ImageView imag= view.findViewById(R.id.imageView);
+        ImageView loc= view.findViewById(R.id.locition);
+
+        name.setText(arr.get(i).name);
+        rating.setText(arr.get(i).rating);
+        imag.setImageResource(arr.get(i).imag);
+        loc.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(Intent.ACTION_VIEW, Uri.parse(data.get(position).locationLink));
+            public void onClick(View view) {
+                Intent intent= new Intent(Intent.ACTION_VIEW, Uri.parse(arr.get(i).loc));
                 context.startActivity(intent);
             }
         });
-
-
-        return convertView;
+        return view;
     }
 }

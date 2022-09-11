@@ -3,9 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/ss"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:textSize="30sp"
+        android:text="Zakat Calculator"
+        android:textColor="#38A3A5"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/userInput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <EditText
         android:id="@+id/userInput"
         android:layout_width="match_parent"
@@ -13,9 +26,10 @@
         android:layout_margin="32dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
-        android:drawableEnd="@drawable/zakat_icon"
+        android:drawableEnd="@drawable/y"
         android:gravity="start"
-        android:hint="@string/amount"
+        android:hint="amount"
+        android:textColor="#134D5B"
         android:inputType="number"
         android:textAlignment="viewStart"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -23,7 +37,7 @@
         app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.28" />
+        app:layout_constraintVertical_bias="0.344" />
 
     <Button
         android:id="@+id/Calculate"
@@ -31,11 +45,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="32dp"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="@color/green"
-        android:text="@string/calc"
+        android:layout_marginTop="144dp"
+        android:backgroundTint="#38A3A5"
         android:onClick="onCalc"
+        android:text="calculate"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userInput" />
 
@@ -45,7 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:textSize="20sp"
-        android:text="@string/result"
+        android:text="Result"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Calculate" />
@@ -55,9 +70,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:textSize="25sp"
+        android:textSize="30sp"
+        android:textStyle="bold"
         android:text="0"
-        android:textColor="#009000"
+        android:textColor="#38A3A5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/result" />

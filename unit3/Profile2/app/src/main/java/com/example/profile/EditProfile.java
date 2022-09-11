@@ -20,12 +20,13 @@ public class EditProfile extends AppCompatActivity {
         //init views
         name=findViewById(R.id.userName);
         role=findViewById(R.id.userRole);
+
         //get Data
-        SharedPreferences sharedPref = getSharedPreferences("myData",Context.MODE_PRIVATE);
+        /*SharedPreferences sharedPref = getSharedPreferences("myData",Context.MODE_PRIVATE);
         if (sharedPref.contains("name"))
             name.setText(sharedPref.getString("name",""));
         if (sharedPref.contains("role"))
-            role.setText(sharedPref.getString("role",""));
+            role.setText(sharedPref.getString("role",""));*/
     }
     public void saveData(View view)
     {

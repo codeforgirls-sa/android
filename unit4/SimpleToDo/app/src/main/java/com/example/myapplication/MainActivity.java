@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     EditText input;
     ArrayAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         //adapter
         adapter=new ArrayAdapter(MainActivity.this,R.layout.new_item,R.id.t1,toDoData);
         listView.setAdapter(adapter);
+
         //remove task
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
